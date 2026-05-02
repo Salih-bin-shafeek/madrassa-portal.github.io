@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madrassa Manarul Quran | Unified Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald-950: #022c22;
+            --emerald-900: #064e3b;
+            --emerald-800: #065f46;
+            --amber-500: #f59e0b;
+            --amber-400: #fbbf24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; margin: 0; padding: 0; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .page { display: none !important; visibility: hidden; pointer-events: none; }
+        .page.active { display: block !important; visibility: visible; pointer-events: auto; opacity: 1; animation: fadeIn 0.4s ease-out; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Premium Shadows & Glass */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
+        }
+        .premium-card {
+            background: white;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+        .premium-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.08); }
+
+        /* Islamic Pattern Overlay */
+        .islamic-bg {
+            background-color: var(--emerald-950);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 0h60v60H0V0zm15 15h30v30H15V15zm15 0l15 15-15 15-15-15 15-15z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Sidebar Styling for Desktop */
+        @media (min-width: 1024px) {
+            .sidebar { width: 300px; height: 100vh; position: fixed; left: 0; top: 0; }
+            .main-content { margin-left: 300px; }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1023px) {
+            .sidebar { display: none !important; }
+            .main-content { margin-left: 0; padding: 1.5rem; }
+            .mobile-nav { display: flex; position: fixed; bottom: 0; width: 100%; background: white; z-index: 100; border-top: 1px solid #eee; }
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            .report-card { border: 2px solid #f1f5f9 !important; box-shadow: none !important; width: 100% !important; margin: 0 !important; }
+        }
+    </style>
+</head>
+<body class="text-slate-900">
+
+    <!-- Login Page -->
+    <section id="page-login" class="page active min-h-screen flex items-center justify-center p-4 bg-slate-100">
+        <div class="absolute inset-0 islamic-bg opacity-10"></div>
+        <div class="max-w-4xl w-full flex bg-white rounded-[2rem] shadow-2xl overflow-hidden relative z-10">
+            <div class="hidden lg:flex lg:w-1/2 islamic-bg p-12 flex-col justify-between text-white">
+                <div>
+                    <h1 class="font-serif text-4xl font-bold text-amber-400">Manarul Quran</h1>
+                    <p class="text-emerald-400 font-bold text-xs uppercase tracking-widest mt-2">The Light of Knowledge</p>
+                </div>
+                <div><p class="text-xl font-medium italic opacity-80">"Seeking knowledge is a mandate upon every Muslim."</p></div>
+            </div>
+            <div class="w-full lg:w-1/2 p-10 lg:p-16">
+                <div class="text-center lg:text-left mb-10">
+                    <h2 class="text-3xl font-extrabold tracking-tight">Portal Access</h2>
+                    <p class="text-slate-500 font-medium mt-2">Enter your credentials to enter the sanctuary.</p>
+                </div>
+                <div id="login-error" class="hidden mb-6 p-4 rounded-2xl bg-red-50 text-red-600 text-sm font-bold border border-red-100"></div>
+                <div class="space-y-6">
+                    <div>
+                        <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 mb-2 block">System ID</label>
+                        <input type="text" id="login-id" placeholder="Admin or Student ID" class="w-full px-5 py-4 rounded-2xl bg-slate-100 border-none outline-none focus:ring-2 focus:ring-emerald-500/20 font-semibold">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 mb-2 block">Security Pin</label>
+                        <input type="password" id="login-pass" placeholder="••••••••" class="w-full px-5 py-4 rounded-2xl bg-slate-100 border-none outline-none focus:ring-2 focus:ring-emerald-500/20 font-semibold">
+                    </div>
+                    <button onclick="handleLogin()" class="w-full py-5 bg-emerald-950 text-white font-black rounded-2xl shadow-xl uppercase tracking-widest text-sm hover:bg-emerald-900 transition-all">Open Sanctuary Gate</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="page-admin" class="page min-h-screen">
+        <aside class="sidebar islamic-bg p-10 text-white flex flex-col">
+            <div class="mb-12">
+                <h2 class="font-serif text-3xl font-bold text-amber-400">MQ Portal</h2>
+                <p class="text-[10px] font-black uppercase tracking-widest text-emerald-400 mt-1">Institutional Admin</p>
+            </div>
+            <nav class="flex-1 space-y-6">
+                <a href="#" class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl border border-white/5 font-bold"><span>📊</span> Overview</a>
+                <a href="#" class="flex items-center gap-4 p-4 rounded-2xl text-emerald-400/80 hover:text-white transition-all font-bold"><span>📅</span> Attendance</a>
+            </nav>
+            <button onclick="logout()" class="mt-auto p-4 rounded-2xl bg-red-500/10 text-red-400 font-black uppercase text-[10px] tracking-widest border border-red-500/20">Log Out System</button>
+        </aside>
+
+        <main class="main-content p-6 lg:p-12 pb-24 lg:pb-12">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-12">
+                <div class="premium-card p-6 flex flex-col justify-between"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Students</p><h3 class="text-3xl font-black text-emerald-900" id="stat-students">1</h3></div>
+                <div class="premium-card p-6 flex flex-col justify-between"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Attendance Avg</p><h3 class="text-3xl font-black text-emerald-900">88%</h3></div>
+                <div class="premium-card p-6 flex flex-col justify-between"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Active Month</p><h3 class="text-3xl font-black text-emerald-900">May</h3></div>
+                <div class="premium-card p-6 flex flex-col justify-between bg-emerald-950 text-white"><p class="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Status</p><h3 class="text-2xl font-bold">Live Data</h3></div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                <div class="xl:col-span-1">
+                    <div class="premium-card p-8">
+                        <h4 class="text-lg font-extrabold text-slate-900 mb-8 border-l-4 border-amber-400 pl-4">Log Progress</h4>
+                        <div class="space-y-4">
+                            <input type="text" id="form-sid" placeholder="Student ID" class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                            <input type="text" id="form-name" placeholder="Full Name" class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                            <input type="password" id="form-pass" placeholder="Portal Pin" class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="number" id="form-total" placeholder="Work Days" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <select id="form-month" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold"><option>May</option><option>June</option></select>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" id="form-puthiya" placeholder="Puthiya Paadam" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <input type="text" id="form-juz" placeholder="Juz Paadam" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" id="form-pazhe1" placeholder="Pazhaya 1" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <input type="text" id="form-pazhe2" placeholder="Pazhaya 2" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="number" id="form-present" placeholder="Present" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <input type="number" id="form-absent" placeholder="Absent" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                            </div>
+                            <textarea id="form-note" placeholder="Ustad's Remarks" rows="2" class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold resize-none"></textarea>
+                            <button onclick="saveStudent()" class="w-full py-4 bg-emerald-950 text-white font-black rounded-xl shadow-lg hover:bg-emerald-900 transition-all uppercase tracking-widest text-xs">Archive Data</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="xl:col-span-2">
+                    <div class="premium-card overflow-hidden">
+                        <div class="p-8 border-b border-slate-100 flex justify-between items-center"><h4 class="font-extrabold text-slate-900">Student Progress Registry</h4><span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase rounded-full">Updated Live</span></div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="bg-slate-50 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                    <tr>
+                                        <th class="px-8 py-5">System ID</th>
+                                        <th class="px-8 py-5">Full Name</th>
+                                        <th class="px-8 py-5 text-center">Attendance</th>
+                                        <th class="px-8 py-5 text-center">Parent Status</th>
+                                        <th class="px-8 py-5 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-table-body" class="divide-y divide-slate-100"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <nav class="mobile-nav lg:hidden flex justify-around p-4">
+            <button class="text-emerald-900 flex flex-col items-center gap-1 font-bold text-[10px] uppercase"><span>📊</span> Overview</button>
+            <button class="text-slate-400 flex flex-col items-center gap-1 font-bold text-[10px] uppercase"><span>📅</span> Log</button>
+            <button onclick="logout()" class="text-red-400 flex flex-col items-center gap-1 font-bold text-[10px] uppercase"><span>🚪</span> Exit</button>
+        </nav>
+    </section>
+
+    <!-- Student View -->
+    <section id="page-student" class="page min-h-screen bg-white lg:bg-slate-100 lg:py-16 px-0 lg:px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="no-print flex justify-between items-center p-6 lg:p-0 mb-8">
+                <button onclick="logout()" class="font-black text-[10px] text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2"><span class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center">←</span> Back</button>
+                <button onclick="window.print()" class="px-6 py-3 bg-emerald-950 text-white rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl">Export Secure PDF</button>
+            </div>
+            <div id="student-report-content"></div>
+        </div>
+    </section>
+
+    <script>
+        let students = JSON.parse(localStorage.getItem('madrassa_db_final')) || [];
+        
+        function handleLogin() {
+            const id = document.getElementById('login-id').value;
+            const pass = document.getElementById('login-pass').value;
+            if(id === 'admin' && pass === 'admin123') { showPage('admin'); renderAdminTable(); }
+            else {
+                const s = students.find(x => x.student_id === id && x.password === pass);
+                if(s) { showPage('student'); renderStudentReport(s); }
+                else { 
+                    const err = document.getElementById('login-error');
+                    err.innerText = 'Authentication Mismatch. Please Re-verify.';
+                    err.classList.remove('hidden');
+                }
+            }
+        }
+
+        function showPage(pid) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('page-' + pid);
+            if (target) target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        function logout() { showPage('login'); document.getElementById('login-error').classList.add('hidden'); }
+
+        function saveStudent() {
+            const s = {
+                student_id: document.getElementById('form-sid').value,
+                name: document.getElementById('form-name').value,
+                password: document.getElementById('form-pass').value,
+                month: document.getElementById('form-month').value,
+                puthiya_paadam: document.getElementById('form-puthiya').value,
+                juz_paadam: document.getElementById('form-juz').value,
+                pazhe_paadam_1: document.getElementById('form-pazhe1').value,
+                pazhe_paadam_2: document.getElementById('form-pazhe2').value,
+                present_days: document.getElementById('form-present').value,
+                absent_days: document.getElementById('form-absent').value,
+                total_working_days: document.getElementById('form-total').value,
+                ustads_note: document.getElementById('form-note').value,
+                is_viewed: false
+            };
+            if(!s.student_id || !s.name) return alert('Identifiers Missing.');
+            const idx = students.findIndex(x => x.student_id === s.student_id);
+            if(idx > -1) students[idx] = s; else students.push(s);
+            localStorage.setItem('madrassa_db_final', JSON.stringify(students));
+            renderAdminTable();
+            document.querySelectorAll('#page-admin input, #page-admin textarea').forEach(i => i.value = '');
+        }
+
+        function renderAdminTable() {
+            document.getElementById('stat-students').innerText = students.length;
+            const body = document.getElementById('admin-table-body');
+            body.innerHTML = students.map(s => `
+                <tr class="hover:bg-emerald-50/30 transition-all border-b border-slate-50">
+                    <td class="px-8 py-6 font-mono text-[10px] font-black text-emerald-800">${s.student_id}</td>
+                    <td class="px-8 py-6"><div class="font-extrabold text-slate-900">${s.name}</div><div class="text-[9px] text-slate-400 font-black uppercase tracking-widest">${s.month} Progress</div></td>
+                    <td class="px-8 py-6 text-center"><div class="text-xs font-black text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">${s.present_days} / ${s.total_working_days}</div></td>
+                    <td class="px-8 py-6 text-center">${s.is_viewed ? `<span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-[9px] font-black uppercase rounded-full border border-emerald-200">✅ Viewed</span>` : `<span class="px-3 py-1 bg-slate-100 text-slate-400 text-[9px] font-black uppercase rounded-full border border-slate-200">⏳ Pending</span>`}</td>
+                    <td class="px-8 py-6 text-right"><button onclick="deleteStudent('${s.student_id}')" class="text-red-400 hover:text-red-600 font-bold text-lg">×</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function deleteStudent(id) {
+            if(confirm('Purge records?')) {
+                students = students.filter(x => x.student_id !== id);
+                localStorage.setItem('madrassa_db_final', JSON.stringify(students));
+                renderAdminTable();
+            }
+        }
+
+        function renderStudentReport(s) {
+            const studentIdx = students.findIndex(x => x.student_id === s.student_id);
+            if (studentIdx > -1) { students[studentIdx].is_viewed = true; localStorage.setItem('madrassa_db_final', JSON.stringify(students)); }
+            const att = ((s.present_days / s.total_working_days * 100) || 0).toFixed(0);
+            document.getElementById('student-report-content').innerHTML = `
+                <div class="report-card bg-white lg:rounded-[3rem] lg:shadow-2xl overflow-hidden min-h-screen lg:min-h-0 border-none lg:border border-slate-100">
+                    <div class="islamic-bg p-12 lg:p-20 text-center relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="inline-block px-4 py-1 bg-amber-400 text-emerald-950 text-[9px] font-black uppercase tracking-[0.3em] rounded-full mb-6">Verified Digital Certificate</div>
+                            <h1 class="font-serif text-4xl lg:text-6xl text-white font-bold leading-tight">Madrassa <br class="lg:hidden"> Manarul Quran</h1>
+                            <div class="h-1.5 w-32 bg-amber-400 mx-auto rounded-full mt-6 mb-8"></div>
+                            <p class="text-emerald-400 text-xs font-black uppercase tracking-[0.4em]">Progress Appraisal — ${s.month} 2026</p>
+                        </div>
+                    </div>
+                    <div class="p-8 lg:p-20">
+                        <div class="flex flex-col lg:flex-row justify-between items-center gap-8 mb-20">
+                            <div class="text-center lg:text-left"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Student Designation</p><h2 class="font-serif text-4xl lg:text-5xl font-bold text-slate-900">${s.name}</h2></div>
+                            <div class="text-center lg:text-right"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">System Ledger ID</p><p class="text-4xl font-black text-emerald-900 font-mono tracking-tighter">${s.student_id}</p></div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 mb-20">
+                            <div class="space-y-10">
+                                <h3 class="flex items-center gap-4 text-emerald-950 font-black uppercase tracking-[0.2em] text-[10px]"><span class="w-1.5 h-6 bg-emerald-500 rounded-full"></span> Curriculum Achievement</h3>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100"><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Puthiya Paadam</p><p class="text-xl font-bold text-slate-900">${s.puthiya_paadam}</p></div>
+                                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100"><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Juz Paadam</p><p class="text-xl font-bold text-slate-900">${s.juz_paadam}</p></div>
+                                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100"><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Pazhaya 1</p><p class="text-xl font-bold text-slate-900">${s.pazhe_paadam_1}</p></div>
+                                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100"><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Pazhaya 2</p><p class="text-xl font-bold text-slate-900">${s.pazhe_paadam_2}</p></div>
+                                </div>
+                            </div>
+                            <div class="space-y-10">
+                                <h3 class="flex items-center gap-4 text-emerald-950 font-black uppercase tracking-[0.2em] text-[10px]"><span class="w-1.5 h-6 bg-amber-400 rounded-full"></span> Consistency Matrix</h3>
+                                <div class="p-8 bg-amber-50 rounded-[2rem] border border-amber-100 space-y-6">
+                                    <div class="flex justify-between items-center"><div class="text-left"><p class="text-[9px] font-black text-amber-800/60 uppercase tracking-widest mb-1">Consistency</p><p class="text-4xl font-black text-amber-900">${att}%</p></div><div class="text-right"><p class="text-[9px] font-black text-amber-800/60 uppercase tracking-widest mb-1">Ratio</p><p class="text-2xl font-bold text-amber-900">${s.present_days}<span class="text-sm opacity-40">/${s.total_working_days}</span></p></div></div>
+                                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-amber-200/50">
+                                        <div><p class="text-[8px] font-black text-amber-800/40 uppercase tracking-widest mb-1">Present Days</p><p class="text-lg font-bold text-emerald-700">${s.present_days}</p></div>
+                                        <div><p class="text-[8px] font-black text-amber-800/40 uppercase tracking-widest mb-1">Absent Days</p><p class="text-lg font-bold text-red-600">${s.absent_days || '0'}</p></div>
+                                    </div>
+                                    <div class="w-full h-1.5 bg-amber-200 rounded-full overflow-hidden"><div class="h-full bg-amber-500 rounded-full" style="width: ${att}%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-10 lg:p-16 bg-slate-950 rounded-[3rem] relative shadow-2xl">
+                            <h3 class="text-[10px] font-black text-emerald-500 uppercase tracking-[0.5em] mb-8">Ustad's Narrative</h3>
+                            <p class="font-serif text-2xl lg:text-3xl text-white/90 leading-relaxed italic">"${s.ustads_note || 'Dedicated spiritual and academic growth.'}"</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        if(students.length <= 1) {
+            students = [{
+                student_id: 'MQ-123', name: 'Salman', password: 'pass', month: 'May', 
+                puthiya_paadam: '123 line', juz_paadam: '12 1/2 juz', pazhe_paadam_1: '12', pazhe_paadam_2: '12 1/2',
+                present_days: '23', absent_days: '3', total_working_days: '26',
+                ustads_note: 'Exceptional focus on Juz memorization.', is_viewed: false
+            }];
+            localStorage.setItem('madrassa_db_final', JSON.stringify(students));
+        }
+    </script>
+</body>
+</html>
