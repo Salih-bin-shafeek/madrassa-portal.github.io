@@ -69,14 +69,19 @@
     <!-- Login Page -->
     <section id="page-login" class="page active min-h-screen flex items-center justify-center p-4 bg-slate-100">
         <div class="absolute inset-0 islamic-bg opacity-10"></div>
-        <div class="max-w-4xl w-full flex bg-white rounded-[2rem] shadow-2xl overflow-hidden relative z-10">
-            <div class="hidden lg:flex lg:w-1/2 islamic-bg p-12 flex-col justify-between text-white">
-                <div>
-                    <h1 class="font-serif text-4xl font-bold text-amber-400">Manarul Quran</h1>
-                    <p class="text-emerald-400 font-bold text-xs uppercase tracking-widest mt-2">The Light of Knowledge</p>
+        <div class="max-w-4xl w-full flex flex-col lg:flex-row bg-white rounded-[2rem] shadow-2xl overflow-hidden relative z-10">
+            <!-- Branding Section -->
+            <div class="islamic-bg p-10 lg:p-12 flex flex-col justify-center lg:justify-between text-white lg:w-1/2 min-h-[160px] lg:min-h-0">
+                <div class="text-center lg:text-left">
+                    <h1 class="font-serif text-3xl lg:text-4xl font-bold text-amber-400">Manarul Quran</h1>
+                    <p class="text-emerald-400 font-bold text-[10px] lg:text-xs uppercase tracking-widest mt-1 lg:mt-2">The Light of Knowledge</p>
                 </div>
-                <div><p class="text-xl font-medium italic opacity-80">"Seeking knowledge is a mandate upon every Muslim."</p></div>
+                <div class="hidden lg:block">
+                    <p class="text-xl font-medium italic opacity-80">"Seeking knowledge is a mandate upon every Muslim."</p>
+                </div>
             </div>
+
+            <!-- Login Form -->
             <div class="w-full lg:w-1/2 p-10 lg:p-16">
                 <div class="text-center lg:text-left mb-10">
                     <h2 class="text-3xl font-extrabold tracking-tight">Portal Access</h2>
@@ -112,8 +117,15 @@
             <button onclick="logout()" class="mt-auto p-4 rounded-2xl bg-red-500/10 text-red-400 font-black uppercase text-[10px] tracking-widest border border-red-500/20">Log Out System</button>
         </aside>
 
-        <main class="main-content p-6 lg:p-12 pb-24 lg:pb-12">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-12">
+        <main class="main-content p-0 lg:p-12 pb-24 lg:pb-12">
+            <!-- Mobile Admin Header (Visible only on Mobile) -->
+            <div class="lg:hidden islamic-bg p-8 text-center text-white mb-8">
+                <h2 class="font-serif text-2xl font-bold text-amber-400">MQ Admin Portal</h2>
+                <p class="text-[10px] font-black uppercase tracking-widest text-emerald-400 mt-1">Institutional Management</p>
+            </div>
+
+            <!-- Header Stats -->
+            <div class="px-6 lg:px-0 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-12">
                 <div class="premium-card p-6 flex flex-col justify-between"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Students</p><h3 class="text-3xl font-black text-emerald-900" id="stat-students">1</h3></div>
                 <div class="premium-card p-6 flex flex-col justify-between"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Attendance Avg</p><h3 class="text-3xl font-black text-emerald-900">88%</h3></div>
                 <div class="premium-card p-6 flex flex-col justify-between"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Active Month</p><h3 class="text-3xl font-black text-emerald-900">May</h3></div>
@@ -325,3 +337,4 @@
     </script>
 </body>
 </html>
+
