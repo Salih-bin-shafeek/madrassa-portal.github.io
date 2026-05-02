@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madrassa Manarul Quran | Unified Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --emerald-950: #022c22;
@@ -14,15 +17,44 @@
             --amber-500: #f59e0b;
             --amber-400: #fbbf24;
         }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; margin: 0; padding: 0; }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        .page { display: none !important; visibility: hidden; pointer-events: none; }
-        .page.active { display: block !important; visibility: visible; pointer-events: auto; opacity: 1; animation: fadeIn 0.4s ease-out; }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
         }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .page {
+            display: none !important;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .page.active {
+            display: block !important;
+            visibility: visible;
+            pointer-events: auto;
+            opacity: 1;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Premium Shadows & Glass */
         .glass {
             background: rgba(255, 255, 255, 0.85);
@@ -30,14 +62,19 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
             box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
         }
+
         .premium-card {
             background: white;
             border-radius: 24px;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.04);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
             transition: all 0.3s ease;
         }
-        .premium-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.08); }
+
+        .premium-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+        }
 
         /* Islamic Pattern Overlay */
         .islamic-bg {
@@ -47,37 +84,74 @@
 
         /* Sidebar Styling for Desktop */
         @media (min-width: 1024px) {
-            .sidebar { width: 300px; height: 100vh; position: fixed; left: 0; top: 0; }
-            .main-content { margin-left: 300px; }
+            .sidebar {
+                width: 300px;
+                height: 100vh;
+                position: fixed;
+                left: 0;
+                top: 0;
+            }
+
+            .main-content {
+                margin-left: 300px;
+            }
         }
 
         /* Mobile Adjustments */
         @media (max-width: 1023px) {
-            .sidebar { display: none !important; }
-            .main-content { margin-left: 0; padding: 1.5rem; }
-            .mobile-nav { display: flex; position: fixed; bottom: 0; width: 100%; background: white; z-index: 100; border-top: 1px solid #eee; }
+            .sidebar {
+                display: none !important;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1.5rem;
+            }
+
+            .mobile-nav {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background: white;
+                z-index: 100;
+                border-top: 1px solid #eee;
+            }
         }
 
         @media print {
-            .no-print { display: none !important; }
-            .report-card { border: 2px solid #f1f5f9 !important; box-shadow: none !important; width: 100% !important; margin: 0 !important; }
+            .no-print {
+                display: none !important;
+            }
+
+            .report-card {
+                border: 2px solid #f1f5f9 !important;
+                box-shadow: none !important;
+                width: 100% !important;
+                margin: 0 !important;
+            }
         }
     </style>
 </head>
+
 <body class="text-slate-900">
 
     <!-- Login Page -->
     <section id="page-login" class="page active min-h-screen flex items-center justify-center p-4 bg-slate-100">
         <div class="absolute inset-0 islamic-bg opacity-10"></div>
-        <div class="max-w-4xl w-full flex flex-col lg:flex-row bg-white rounded-[2rem] shadow-2xl overflow-hidden relative z-10">
+        <div
+            class="max-w-4xl w-full flex flex-col lg:flex-row bg-white rounded-[2rem] shadow-2xl overflow-hidden relative z-10">
             <!-- Branding Section -->
-            <div class="islamic-bg p-10 lg:p-12 flex flex-col justify-center lg:justify-between text-white lg:w-1/2 min-h-[160px] lg:min-h-0">
+            <div
+                class="islamic-bg p-10 lg:p-12 flex flex-col justify-center lg:justify-between text-white lg:w-1/2 min-h-[160px] lg:min-h-0">
                 <div class="text-center lg:text-left">
                     <h1 class="font-serif text-3xl lg:text-4xl font-bold text-amber-400">Manarul Quran</h1>
-                    <p class="text-emerald-400 font-bold text-[10px] lg:text-xs uppercase tracking-widest mt-1 lg:mt-2">The Light of Knowledge</p>
+                    <p class="text-emerald-400 font-bold text-[10px] lg:text-xs uppercase tracking-widest mt-1 lg:mt-2">
+                        The Light of Knowledge</p>
                 </div>
                 <div class="hidden lg:block">
-                    <p class="text-xl font-medium italic opacity-80">"Seeking knowledge is a mandate upon every Muslim."</p>
+                    <p class="text-xl font-medium italic opacity-80">"Seeking knowledge is a mandate upon every Muslim."
+                    </p>
                 </div>
             </div>
 
@@ -87,17 +161,27 @@
                     <h2 class="text-3xl font-extrabold tracking-tight">Portal Access</h2>
                     <p class="text-slate-500 font-medium mt-2">Enter your credentials to enter the sanctuary.</p>
                 </div>
-                <div id="login-error" class="hidden mb-6 p-4 rounded-2xl bg-red-50 text-red-600 text-sm font-bold border border-red-100"></div>
+                <div id="login-error"
+                    class="hidden mb-6 p-4 rounded-2xl bg-red-50 text-red-600 text-sm font-bold border border-red-100">
+                </div>
                 <div class="space-y-6">
                     <div>
-                        <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 mb-2 block">System ID</label>
-                        <input type="text" id="login-id" placeholder="Admin or Student ID" class="w-full px-5 py-4 rounded-2xl bg-slate-100 border-none outline-none focus:ring-2 focus:ring-emerald-500/20 font-semibold">
+                        <label
+                            class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 mb-2 block">System
+                            ID</label>
+                        <input type="text" id="login-id" placeholder="Admin or Student ID"
+                            class="w-full px-5 py-4 rounded-2xl bg-slate-100 border-none outline-none focus:ring-2 focus:ring-emerald-500/20 font-semibold">
                     </div>
                     <div>
-                        <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 mb-2 block">Security Pin</label>
-                        <input type="password" id="login-pass" placeholder="••••••••" class="w-full px-5 py-4 rounded-2xl bg-slate-100 border-none outline-none focus:ring-2 focus:ring-emerald-500/20 font-semibold">
+                        <label
+                            class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 mb-2 block">Security
+                            Pin</label>
+                        <input type="password" id="login-pass" placeholder="••••••••"
+                            class="w-full px-5 py-4 rounded-2xl bg-slate-100 border-none outline-none focus:ring-2 focus:ring-emerald-500/20 font-semibold">
                     </div>
-                    <button onclick="handleLogin()" class="w-full py-5 bg-emerald-950 text-white font-black rounded-2xl shadow-xl uppercase tracking-widest text-sm hover:bg-emerald-900 transition-all">Open Sanctuary Gate</button>
+                    <button onclick="handleLogin()"
+                        class="w-full py-5 bg-emerald-950 text-white font-black rounded-2xl shadow-xl uppercase tracking-widest text-sm hover:bg-emerald-900 transition-all">Open
+                        Sanctuary Gate</button>
                 </div>
             </div>
         </div>
@@ -108,66 +192,132 @@
         <aside class="sidebar islamic-bg p-10 text-white flex flex-col">
             <div class="mb-12">
                 <h2 class="font-serif text-3xl font-bold text-amber-400">MQ Portal</h2>
-                <p class="text-[10px] font-black uppercase tracking-widest text-emerald-400 mt-1">Institutional Admin</p>
+                <p class="text-[10px] font-black uppercase tracking-widest text-emerald-400 mt-1">Institutional Admin
+                </p>
             </div>
             <nav class="flex-1 space-y-6">
-                <a href="#" class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl border border-white/5 font-bold"><span>📊</span> Overview</a>
-                <a href="#" class="flex items-center gap-4 p-4 rounded-2xl text-emerald-400/80 hover:text-white transition-all font-bold"><span>📅</span> Attendance</a>
+                <a href="#"
+                    class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl border border-white/5 font-bold"><span>📊</span>
+                    Overview</a>
+                <a href="#"
+                    class="flex items-center gap-4 p-4 rounded-2xl text-emerald-400/80 hover:text-white transition-all font-bold"><span>📅</span>
+                    Attendance</a>
             </nav>
-            <button onclick="logout()" class="mt-auto p-4 rounded-2xl bg-red-500/10 text-red-400 font-black uppercase text-[10px] tracking-widest border border-red-500/20">Log Out System</button>
+            <button onclick="logout()"
+                class="mt-auto p-4 rounded-2xl bg-red-500/10 text-red-400 font-black uppercase text-[10px] tracking-widest border border-red-500/20">Log
+                Out System</button>
         </aside>
 
         <main class="main-content p-0 lg:p-12 pb-24 lg:pb-12">
             <!-- Mobile Admin Header (Visible only on Mobile) -->
             <div class="lg:hidden islamic-bg p-8 text-center text-white mb-8">
                 <h2 class="font-serif text-2xl font-bold text-amber-400">MQ Admin Portal</h2>
-                <p class="text-[10px] font-black uppercase tracking-widest text-emerald-400 mt-1">Institutional Management</p>
+                <p class="text-[10px] font-black uppercase tracking-widest text-emerald-400 mt-1">Institutional
+                    Management</p>
             </div>
 
             <!-- Header Stats -->
             <div class="px-6 lg:px-0 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-12">
-                <div class="premium-card p-6 flex flex-col justify-between"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Students</p><h3 class="text-3xl font-black text-emerald-900" id="stat-students">1</h3></div>
-                <div class="premium-card p-6 flex flex-col justify-between"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Attendance Avg</p><h3 class="text-3xl font-black text-emerald-900">88%</h3></div>
-                <div class="premium-card p-6 flex flex-col justify-between"><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Active Month</p><h3 class="text-3xl font-black text-emerald-900">May</h3></div>
-                <div class="premium-card p-6 flex flex-col justify-between bg-emerald-950 text-white"><p class="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Status</p><h3 class="text-2xl font-bold">Live Data</h3></div>
+                <div class="premium-card p-6 flex flex-col justify-between">
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Students</p>
+                    <h3 class="text-3xl font-black text-emerald-900" id="stat-students">1</h3>
+                </div>
+                <div class="premium-card p-6 flex flex-col justify-between">
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Attendance Avg</p>
+                    <h3 class="text-3xl font-black text-emerald-900">88%</h3>
+                </div>
+                <div class="premium-card p-6 flex flex-col justify-between">
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Active Month</p>
+                    <h3 class="text-3xl font-black text-emerald-900">May</h3>
+                </div>
+                <div class="premium-card p-6 flex flex-col justify-between bg-emerald-950 text-white">
+                    <p class="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Status</p>
+                    <h3 class="text-2xl font-bold">Live Data</h3>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
                 <div class="xl:col-span-1">
                     <div class="premium-card p-8">
-                        <h4 class="text-lg font-extrabold text-slate-900 mb-8 border-l-4 border-amber-400 pl-4">Log Progress</h4>
+                        <h4 class="text-lg font-extrabold text-slate-900 mb-8 border-l-4 border-amber-400 pl-4">Log
+                            Progress</h4>
                         <div class="space-y-4">
-                            <input type="text" id="form-sid" placeholder="Student ID" class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
-                            <input type="text" id="form-name" placeholder="Full Name" class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
-                            <input type="password" id="form-pass" placeholder="Portal Pin" class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                            <input type="text" id="form-sid" placeholder="Student ID"
+                                class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                            <input type="text" id="form-name" placeholder="Full Name"
+                                class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                            <input type="password" id="form-pass" placeholder="Portal Pin"
+                                class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
                             <div class="grid grid-cols-2 gap-4">
-                                <input type="number" id="form-total" placeholder="Work Days" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
-                                <select id="form-month" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold"><option>May</option><option>June</option></select>
+                                <input type="number" id="form-total" placeholder="Work Days"
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <select id="form-month"
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option selected>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                </select>
                             </div>
                             <div class="grid grid-cols-2 gap-4">
-                                <input type="text" id="form-puthiya" placeholder="Puthiya Paadam" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
-                                <input type="text" id="form-juz" placeholder="Juz Paadam" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <input type="text" id="form-puthiya" placeholder="Puthiya Paadam"
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <input type="text" id="form-juz" placeholder="Juz Paadam"
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
                             </div>
                             <div class="grid grid-cols-2 gap-4">
-                                <input type="text" id="form-pazhe1" placeholder="Pazhaya 1" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
-                                <input type="text" id="form-pazhe2" placeholder="Pazhaya 2" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <input type="text" id="form-pazhe1" placeholder="Pazhaya 1"
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <input type="text" id="form-pazhe2" placeholder="Pazhaya 2"
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
                             </div>
                             <div class="grid grid-cols-2 gap-4">
-                                <input type="number" id="form-present" placeholder="Present" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
-                                <input type="number" id="form-absent" placeholder="Absent" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <input type="number" id="form-present" placeholder="Present"
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
+                                <input type="number" id="form-absent" placeholder="Absent"
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold">
                             </div>
-                            <textarea id="form-note" placeholder="Ustad's Remarks" rows="2" class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold resize-none"></textarea>
-                            <button onclick="saveStudent()" class="w-full py-4 bg-emerald-950 text-white font-black rounded-xl shadow-lg hover:bg-emerald-900 transition-all uppercase tracking-widest text-xs">Archive Data</button>
+                            <textarea id="form-note" placeholder="Ustad's Remarks" rows="2"
+                                class="w-full px-5 py-3 rounded-xl bg-slate-100 border-none outline-none font-semibold resize-none"></textarea>
+                            <button onclick="saveStudent()"
+                                class="w-full py-4 bg-emerald-950 text-white font-black rounded-xl shadow-lg hover:bg-emerald-900 transition-all uppercase tracking-widest text-xs">Archive
+                                Data</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="xl:col-span-2">
                     <div class="premium-card overflow-hidden">
-                        <div class="p-8 border-b border-slate-100 flex justify-between items-center"><h4 class="font-extrabold text-slate-900">Student Progress Registry</h4><span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase rounded-full">Updated Live</span></div>
+                        <div
+                            class="p-8 border-b border-slate-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white/50">
+                            <div>
+                                <h4 class="font-extrabold text-slate-900">Student Progress Registry</h4>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase mt-1">Institutional Records</p>
+                            </div>
+                            <div class="flex items-center gap-4 w-full md:w-auto">
+                                <select id="admin-month-filter" onchange="renderAdminTable()"
+                                    class="flex-1 md:w-40 px-4 py-2 rounded-xl bg-slate-100 border-none outline-none font-bold text-[10px] uppercase tracking-widest text-slate-500">
+                                    <option value="ALL">All Months</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                </select>
+                                <span
+                                    class="px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase rounded-full whitespace-nowrap">Live</span>
+                            </div>
+                        </div>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left">
-                                <thead class="bg-slate-50 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                <thead
+                                    class="bg-slate-50 text-[10px] font-black text-slate-400 uppercase tracking-widest">
                                     <tr>
                                         <th class="px-8 py-5">System ID</th>
                                         <th class="px-8 py-5">Full Name</th>
@@ -185,9 +335,15 @@
         </main>
 
         <nav class="mobile-nav lg:hidden flex justify-around p-4">
-            <button class="text-emerald-900 flex flex-col items-center gap-1 font-bold text-[10px] uppercase"><span>📊</span> Overview</button>
-            <button class="text-slate-400 flex flex-col items-center gap-1 font-bold text-[10px] uppercase"><span>📅</span> Log</button>
-            <button onclick="logout()" class="text-red-400 flex flex-col items-center gap-1 font-bold text-[10px] uppercase"><span>🚪</span> Exit</button>
+            <button
+                class="text-emerald-900 flex flex-col items-center gap-1 font-bold text-[10px] uppercase"><span>📊</span>
+                Overview</button>
+            <button
+                class="text-slate-400 flex flex-col items-center gap-1 font-bold text-[10px] uppercase"><span>📅</span>
+                Log</button>
+            <button onclick="logout()"
+                class="text-red-400 flex flex-col items-center gap-1 font-bold text-[10px] uppercase"><span>🚪</span>
+                Exit</button>
         </nav>
     </section>
 
@@ -195,8 +351,13 @@
     <section id="page-student" class="page min-h-screen bg-white lg:bg-slate-100 lg:py-16 px-0 lg:px-4">
         <div class="max-w-4xl mx-auto">
             <div class="no-print flex justify-between items-center p-6 lg:p-0 mb-8">
-                <button onclick="logout()" class="font-black text-[10px] text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2"><span class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center">←</span> Back</button>
-                <button onclick="window.print()" class="px-6 py-3 bg-emerald-950 text-white rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl">Export Secure PDF</button>
+                <button onclick="logout()"
+                    class="font-black text-[10px] text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2"><span
+                        class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center">←</span>
+                    Back</button>
+                <button onclick="window.print()"
+                    class="px-6 py-3 bg-emerald-950 text-white rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl">Export
+                    Secure PDF</button>
             </div>
             <div id="student-report-content"></div>
         </div>
@@ -204,15 +365,18 @@
 
     <script>
         let students = JSON.parse(localStorage.getItem('madrassa_db_final')) || [];
-        
+
         function handleLogin() {
             const id = document.getElementById('login-id').value;
             const pass = document.getElementById('login-pass').value;
-            if(id === 'admin' && pass === 'admin123') { showPage('admin'); renderAdminTable(); }
+            if (id === 'admin' && pass === 'admin123') { showPage('admin'); renderAdminTable(); }
             else {
-                const s = students.find(x => x.student_id === id && x.password === pass);
-                if(s) { showPage('student'); renderStudentReport(s); }
-                else { 
+                const s_all = students.filter(x => x.student_id === id && x.password === pass);
+                if (s_all.length > 0) {
+                    showPage('student');
+                    renderStudentPortal(s_all);
+                }
+                else {
                     const err = document.getElementById('login-error');
                     err.innerText = 'Authentication Mismatch. Please Re-verify.';
                     err.classList.remove('hidden');
@@ -245,18 +409,26 @@
                 ustads_note: document.getElementById('form-note').value,
                 is_viewed: false
             };
-            if(!s.student_id || !s.name) return alert('Identifiers Missing.');
-            const idx = students.findIndex(x => x.student_id === s.student_id);
-            if(idx > -1) students[idx] = s; else students.push(s);
+            if (!s.student_id || !s.name) return alert('Identifiers Missing.');
+            // Unique by ID AND Month
+            const idx = students.findIndex(x => x.student_id === s.student_id && x.month === s.month);
+            if (idx > -1) students[idx] = s; else students.push(s);
             localStorage.setItem('madrassa_db_final', JSON.stringify(students));
             renderAdminTable();
             document.querySelectorAll('#page-admin input, #page-admin textarea').forEach(i => i.value = '');
         }
 
         function renderAdminTable() {
-            document.getElementById('stat-students').innerText = students.length;
+            const filterMonth = document.getElementById('admin-month-filter').value;
+
+            // Filter Data
+            const filtered = filterMonth === "ALL" ?
+                students :
+                students.filter(s => s.month === filterMonth);
+
+            document.getElementById('stat-students').innerText = filtered.length;
             const body = document.getElementById('admin-table-body');
-            body.innerHTML = students.map(s => `
+            body.innerHTML = filtered.map(s => `
                 <tr class="hover:bg-emerald-50/30 transition-all border-b border-slate-50">
                     <td class="px-8 py-6 font-mono text-[10px] font-black text-emerald-800">${s.student_id}</td>
                     <td class="px-8 py-6"><div class="font-extrabold text-slate-900">${s.name}</div><div class="text-[9px] text-slate-400 font-black uppercase tracking-widest">${s.month} Progress</div></td>
@@ -268,19 +440,57 @@
         }
 
         function deleteStudent(id) {
-            if(confirm('Purge records?')) {
+            if (confirm('Purge records?')) {
                 students = students.filter(x => x.student_id !== id);
                 localStorage.setItem('madrassa_db_final', JSON.stringify(students));
                 renderAdminTable();
             }
         }
 
+        function renderStudentPortal(studentRecords) {
+            // Sort by month index if needed, for now just show selector
+            const container = document.getElementById('student-report-content');
+
+            // Default to most recent record
+            const latest = studentRecords[studentRecords.length - 1];
+
+            // Create Month Selector UI
+            let selectorHTML = `
+                <div class="no-print mb-8 flex flex-wrap gap-2">
+                    ${studentRecords.map((r, i) => `
+                        <button onclick='renderStudentReport(${JSON.stringify(r).replace(/'/g, "&apos;")})' 
+                                class="px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-widest transition-all 
+                                ${r.month === latest.month ? 'bg-emerald-950 text-white shadow-lg' : 'bg-white text-slate-400 border border-slate-200 hover:bg-emerald-50'}">
+                            ${r.month}
+                        </button>
+                    `).join('')}
+                </div>
+                <div id="active-report-area"></div>
+            `;
+
+            container.innerHTML = selectorHTML;
+            renderStudentReport(latest);
+        }
+
         function renderStudentReport(s) {
-            const studentIdx = students.findIndex(x => x.student_id === s.student_id);
+            // Update Active Tab Styling
+            document.querySelectorAll('#student-report-content button').forEach(btn => {
+                if (btn.innerText.trim() === s.month.toUpperCase()) {
+                    btn.classList.add('bg-emerald-950', 'text-white', 'shadow-lg');
+                    btn.classList.remove('bg-white', 'text-slate-400', 'border', 'border-slate-200');
+                } else {
+                    btn.classList.remove('bg-emerald-950', 'text-white', 'shadow-lg');
+                    btn.classList.add('bg-white', 'text-slate-400', 'border', 'border-slate-200');
+                }
+            });
+
+            // Mark as viewed
+            const studentIdx = students.findIndex(x => x.student_id === s.student_id && x.month === s.month);
             if (studentIdx > -1) { students[studentIdx].is_viewed = true; localStorage.setItem('madrassa_db_final', JSON.stringify(students)); }
+
             const att = ((s.present_days / s.total_working_days * 100) || 0).toFixed(0);
-            document.getElementById('student-report-content').innerHTML = `
-                <div class="report-card bg-white lg:rounded-[3rem] lg:shadow-2xl overflow-hidden min-h-screen lg:min-h-0 border-none lg:border border-slate-100">
+            document.getElementById('active-report-area').innerHTML = `
+                <div class="report-card bg-white lg:rounded-[3rem] lg:shadow-2xl overflow-hidden min-h-screen lg:min-h-0 border-none lg:border border-slate-100 animate-[fadeIn_0.5s_ease-out]">
                     <div class="islamic-bg p-12 lg:p-20 text-center relative overflow-hidden">
                         <div class="relative z-10">
                             <div class="inline-block px-4 py-1 bg-amber-400 text-emerald-950 text-[9px] font-black uppercase tracking-[0.3em] rounded-full mb-6">Verified Digital Certificate</div>
@@ -325,16 +535,24 @@
             `;
         }
 
-        if(students.length <= 1) {
-            students = [{
-                student_id: 'MQ-123', name: 'Salman', password: 'pass', month: 'May', 
-                puthiya_paadam: '123 line', juz_paadam: '12 1/2 juz', pazhe_paadam_1: '12', pazhe_paadam_2: '12 1/2',
-                present_days: '23', absent_days: '3', total_working_days: '26',
-                ustads_note: 'Exceptional focus on Juz memorization.', is_viewed: false
-            }];
+        if (students.length <= 1) {
+            students = [
+                {
+                    student_id: 'MQ-123', name: 'Salman', password: 'pass', month: 'April',
+                    puthiya_paadam: '110 line', juz_paadam: '11 juz', pazhe_paadam_1: '11', pazhe_paadam_2: '11 1/2',
+                    present_days: '21', absent_days: '4', total_working_days: '25',
+                    ustads_note: 'Initial progress show great potential.', is_viewed: true
+                },
+                {
+                    student_id: 'MQ-123', name: 'Salman', password: 'pass', month: 'May',
+                    puthiya_paadam: '123 line', juz_paadam: '12 1/2 juz', pazhe_paadam_1: '12', pazhe_paadam_2: '12 1/2',
+                    present_days: '23', absent_days: '3', total_working_days: '26',
+                    ustads_note: 'Exceptional focus on Juz memorization.', is_viewed: false
+                }
+            ];
             localStorage.setItem('madrassa_db_final', JSON.stringify(students));
         }
     </script>
 </body>
-</html>
 
+</html>
